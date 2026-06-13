@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ post.title }}</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<div class="feed">
+
+    <a href="/">← Ana səhifəyə qayıt</a>
+
+    <div class="post">
+
+        {% if post.image %}
+        <img src="{{ post.image.url }}">
+        {% endif %}
+
+        <h1>{{ post.title }}</h1>
+
+        <div class="date">
+            {{ post.created_at }}
+        </div>
+
+        <p>
+            {{ post.content }}
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+</html>
