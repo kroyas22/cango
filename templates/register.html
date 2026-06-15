@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+
+<h1>Qeydiyyat</h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">
+        Qeydiyyatdan keç
+    </button>
+
+</form>
+
+</body>
+</html>
+
+{% endblock %}

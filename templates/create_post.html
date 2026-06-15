@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Yeni Post</h1>
+
+<form method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">
+        Paylaş
+    </button>
+
+</form>
+
+</body>
+</html>
+
+{% endblock %}

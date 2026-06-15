@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Postu Redaktə Et</title>
+</head>
+<body>
+
+<h1>Postu Redaktə Et</h1>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">
+        Yadda Saxla
+    </button>
+</form>
+
+<a href="/profile/">Profilə qayıt</a>
+
+</body>
+</html>
+
+{% endblock %}

@@ -1,48 +1,37 @@
-{% load static %}
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html>
-<head>
+{% block content %}
 
-    <title>Blog Feed</title>
+<h1 class="title">Blog Feed</h1>
 
-    <link rel="stylesheet"
-          href="{% static 'css/style.css' %}">
+<div class="posts-grid">
 
-</head>
+{% for post in posts %}
 
-<body>
+<div class="card">
 
-<div class="feed">
-
-    <h1>Blog Feed</h1>
-
-    {% for post in posts %}
-
-    <div class="post">
-     {% if post.image %}
-    <img src="{{ post.image.url }}">
+    {% if post.image %}
+        <img src="{{ post.image.url }}">
     {% endif %}
 
-        <h2>   
-            <a href="/post/{{ post.id }}/">
-                {{ post.title }}
-            </a>
-        </h2>
+    <div class="card-body">
 
-        <div class="date">
-            {{ post.created_at }}
-        </div>
+        <h2>{{ post.title }}</h2>
 
         <p>
-            {{ post.content }}
+            {{ post.content|truncatechars:120 }}
         </p>
+
+        <a class="btn" href="/post/{{ post.id }}/">
+            Oxu
+        </a>
 
     </div>
 
-    {% endfor %}
+</div>
+
+{% endfor %}
 
 </div>
 
-</body>
-</html>
+{% endblock %}
